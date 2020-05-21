@@ -1,0 +1,41 @@
+ <div class="profile-settings">
+    <mat-card> 
+    <h3>My profile settings</h3>
+
+        <form class="form" (ngSubmit)="onUpdateUserInfo(sv)" #sv="ngForm">
+
+            <mat-form-field class="form-group">
+                <input matInput placeholder="First Name" id="firstName" name="firstName" [(ngModel)]="firstName" required>
+            </mat-form-field>
+
+            <mat-form-field class="form-group">
+                <input matInput placeholder="Last Name" id="lastName" name="lastName" [(ngModel)]="lastName" required>
+            </mat-form-field>
+
+            <mat-form-field class="form-group">
+                <input matInput placeholder="Classification" id="gradYear" name="gradYear" [(ngModel)]="gradYear" required>
+            </mat-form-field>
+
+            <mat-form-field class="form-group">
+                <textarea matInput placeholder="Short Bio" rows="6" id="bio" name="bio" [(ngModel)]="bio" required></textarea>
+            </mat-form-field>
+
+            <hr>
+            
+            <mat-card-actions class="button">
+                <button mat-raised-button class="primary" type="submit">Save Settings</button>
+            </mat-card-actions> 
+
+            <mat-card-actions class="button">
+                <button mat-raised-button class="primary" (click)="onLogout()">Logout</button>
+            </mat-card-actions>   
+            
+            <mat-card-actions class="button">
+                <button mat-raised-button class="primary" (click)="onPasswordReset()">Reset Password</button>
+            </mat-card-actions> 
+
+        </form>
+
+    </mat-card>
+ </div>
+ 

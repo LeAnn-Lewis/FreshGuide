@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Freshman Guide</title>
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- CSS -->
+    <link href="./assets/css/bootstrap-social.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- JS -->
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript">
+      api_key: {YOUR_API_KEY_GOES_HERE}
+      authorize: true
+      lang:  es_ES
+    </script>
+
+    <script type="text/javascript">
+      function onLinkedInAuth() {
+        IN.API.Profile("me")
+        .result( function(me) {
+          var id = me.values[0].id;
+          // AJAX call to pass back id to your server
+        });
+      }
+    </script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+    <script src="//storage.googleapis.com/vrview/2.0/build/vrview.min.js"></script>
+
+    <!-- Material Design fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+  <body>
+      <script type="IN/Login"> 
+        <form action="/register.html"> 
+        <p>Your Name: <input type="text" name="name" value="<?js= firstName ?> <?js= lastName ?>" /></p>
+        <p>Your Password: <input type="password" name="password" />  </p>
+        <input type="hidden" name="linkedin-id" value="<?js= id ?>" />
+        <input type="submit" name="submit" value="Sign Up"/>
+      </script>
+      <script type="IN/Login" data-onAuth="onLinkedInAuth"></script>
+    <app-root>App is loading...</app-root>
+  </body>
+</html>
